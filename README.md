@@ -1,7 +1,8 @@
 #  🖼 image-generator 🖼 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-
+[![](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
+    
 Use or contribute to our project designed for generating personalized pictures in React.js projects.
 
 This open source project is composed of a front-end in [React.js](https://fr.reactjs.org) and a back-end in [Node.js](https://nodejs.org/en/) with express.
@@ -13,6 +14,7 @@ Lise Guichard and Antonin Val (front-end developpers) / Virginie Baumes and Math
 
 ### Frontend
 Front uses Typescript, and [Tailwind](https://tailwindcss.com) for layout and components styling.
+To send images to the back-end it uses [react-uploady](https://github.com/rpldy/react-uploady), enabling build (client-side) of file-upload features.
 
 ### Backend
 
