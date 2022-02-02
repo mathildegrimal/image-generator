@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@rpldy/uploader": "^0.17.2",
+    "@rpldy/uploady": "^0.17.2"
+  }
+}

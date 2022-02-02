@@ -6,7 +6,7 @@ export default function Result() {
     <div className="h-screen w-screen bg-slate-100 flex justify-center items-center">
       <div className="bg-slate-700 h-1/2 w-full">
         <div className="bg-slate-200 flex justify-center p-2">
-          <img className="rounded-xl" src={Img} />
+          <img className="rounded-xl" src={Img} alt="image" />
         </div>
         <div className="flex justify-center">
           <div className="flex justify-around mt-3 w-1/2">

@@ -9,11 +9,12 @@ export default function ChoicePage() {
   return (
     <div className="h-screen w-screen bg-slate-100 flex justify-center items-center">
       <div className="flex w-screen h-screen justify-around items-center">
-        {ItemsConfig.map((item) => (
+        {ItemsConfig.map((item, index) => (
           <ChoiceItem
             title={item.title}
             label={item.label}
             placeholderItem={item.placeholder}
+            key={index}
           />
         ))}
         <button
