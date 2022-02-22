@@ -2,39 +2,43 @@ const { createCanvas, loadImage } = require('canvas');
 const fs = require('fs');
 const path = require('path');
 
-const canvas = createCanvas(500, 500);
-const context = canvas.getContext('2d');
+class GenerateCanvas {
+    canvas = createCanvas(500,500);
+    context = this.canvas.getContext('2d');
+    basePath;
+    insertPath;
 
-const insertPictures = async (context, basePath, insertPath, x, y, width, height) => {
-    try {
-        const base = await loadImage(basePath);
-        context.drawImage(base, 0, 0);
+    insertPictures = async (x, y, width, height) => {
+        try {
+            const base = await loadImage(this.basePath);
+            this.context.drawImage(base, 0, 0);
+    
+            const insert = await loadImage(this.insertPath);
+            this.context.drawImage(insert, x, y, width, height);
+    
+            const buffer = this.canvas.toBuffer('image/png');
+            fs.writeFileSync('./images/image.png', buffer);
+    
+        } catch(err) {
+            throw err;
+        }
+    
+        return true;
+    };
 
-        const insert = await loadImage(insertPath);
-        context.drawImage(insert, x, y, width, height);
+    generate = async ({base, insert, x, y, width, height}) => {
+        this.context.fillStyle = '#FFF';
+        this.context.fillRect(0, 0, 500, 500);
 
-        const buffer = canvas.toBuffer('image/png');
-        fs.writeFileSync('./images/image.png', buffer);
-
-    } catch(err) {
-        throw err;
-    }
-
-    return true;
-};
-
-const generateCanvas = async (params) => {
-    context.fillStyle = '#FFF';
-    context.fillRect(0, 0, 500, 500);
-
-    const basePath = path.join(__dirname, './images' + params.base);
-    const insertPath = path.join(__dirname, './images' + params.insert);
-
-    try {
-        return await insertPictures(context, basePath, insertPath, params.x, params.y, params.width, params.height);
-    } catch(err) {
-        throw err;
+        this.basePath = path.join(__dirname, './images' + base);
+        this.insertPath = path.join(__dirname, './images' + insert);
+    
+        try {
+            return await this.insertPictures(x, y, width, height);
+        } catch(err) {
+            throw err;
+        }
     }
 }
 
-module.exports = generateCanvas;
+module.exports = GenerateCanvas;
