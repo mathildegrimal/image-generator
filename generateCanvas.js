@@ -1,5 +1,4 @@
 const { createCanvas, loadImage } = require('canvas');
-const res = require('express/lib/response');
 const fs = require('fs');
 const path = require('path');
 
