@@ -2,10 +2,19 @@ const fs = require('fs');
 const path = require('path');
 
 class DownloadImage {
+    folderName = (process.env.IMAGES_FOLDER_PATH) ? process.env.IMAGES_FOLDER_PATH : "./images";
 
-    save() {
+    checkFolder () {
+        if (!fs.existsSync(this.folderName)) {
+            fs.mkdirSync(this.folderName)
+        }
+    }
 
-        return 'coucou';
+    save(tempPath, folderName) {
+        this.checkFolder();
+        fs.rename(tempPath, folderName, err => {
+            if (err) return handleError(err, res);
+        });
     }
 }
 
