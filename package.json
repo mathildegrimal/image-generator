@@ -1,5 +1,5 @@
 {
-  "name": "generate-canvas",
+  "name": "mds-generate-canvas",
   "version": "0.1.0",
   "description": "Generate a merge of two pictures as a canvas",
   "main": "index.js",
@@ -13,6 +13,8 @@
   "author": "Virginie BAUMES, Antonin VAL, Lise GUICHARD, Mathilde GRIMAL",
   "license": "MIT",
   "dependencies": {
-    "canvas": "^2.9.0"
+    "canvas": "^2.9.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3"
   }
 }
