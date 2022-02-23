@@ -1,5 +1,6 @@
+const { GenerateCanvas, DownloadImage } = require('./index');
+
 const body = {
-    base: '/disney.png',
     insert: '/duolingo.png',
     x: 100, 
     y: 100,
@@ -7,9 +8,11 @@ const body = {
     height: 600
 }
 
-const GenerateCanvas = require('./generateCanvasNd'); 
-let generateCanvas = new GenerateCanvas();
+let generateCanvas = new GenerateCanvas('/disney.png');
+let downloadImage = new DownloadImage();
+console.log(downloadImage, generateCanvas);
+
 const asyncFunction = async () => {
     await generateCanvas.generate(body);
 }
-asyncFunction();
+// asyncFunction();
