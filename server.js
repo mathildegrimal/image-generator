@@ -13,5 +13,5 @@ const routes = require('./routes/routes');
 app.use('/generate', routes);
 
 app.listen(8000, () => {
-    console.log('Server up and running');
+    console.log('Server up and running on PORT 8000');
 });
