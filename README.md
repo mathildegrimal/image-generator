@@ -1,4 +1,4 @@
-#  🖼 MDS image-generator 🖼 
+#  🖼 mds-generate-canvas 🖼 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
@@ -22,6 +22,10 @@ We use [node-canvas](https://github.com/Automattic/node-canvas), a [Cairo](https
 
 ```
     npm i mds-generate-canvas
+```
+In case you happen to use a MAC OS X M1 you will have to use the command below first:
+```
+    brew install pkg-config cairo pango libpng jpeg giflib librsvg
 ```
 
 ## Use MDS image-generator
