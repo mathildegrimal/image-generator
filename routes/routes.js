@@ -2,10 +2,11 @@ const router = require('express').Router();
 const path = require('path');
 const multer = require('multer');
 const fs = require('fs');
-require('dotenv').config();
+require('dotenv').config({path:'.env'});
 
 const imageUploadPath = process.env.IMAGES_FOLDER_PATH;
-    
+
+console.log(process.env.IMAGES_FOLDER_PATH);
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, imageUploadPath);

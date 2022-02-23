@@ -4,8 +4,12 @@ export interface Props {
   title: string;
   label: string[];
   placeholderItem: string[];
+  valueImage: any;
+  setValueImage: any;
 }
 export default function ChoiceItem({ title, label, placeholderItem }: Props) {
+
+
   return (
     <div className="flex-col justify-center bg-cyan-200 p-2 rounded-xl shadow-lg">
       <h2 className="text-center text-lg">{title}</h2>

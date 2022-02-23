@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ChoiceItem from "./ChoiceItem";
 
 export default function ChoicePage() {
@@ -6,6 +6,7 @@ export default function ChoicePage() {
     { title: "TAILLE", label: ["w", "h"], placeholder: ["largeur", "hauteur"] },
     { title: "POSITION", label: ["x", "y"], placeholder: ["x", "hauteur"] },
   ];
+  const [valueImage, setValueImage] = useState({})
   return (
     <div className="h-screen w-screen bg-slate-100 flex justify-center items-center">
       <div className="flex w-screen h-screen justify-around items-center">
@@ -13,6 +14,8 @@ export default function ChoicePage() {
           <ChoiceItem
             title={item.title}
             label={item.label}
+            setValueImage={setValueImage}
+            valueImage={valueImage}
             placeholderItem={item.placeholder}
             key={index}
           />
