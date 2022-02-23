@@ -1,0 +1,20 @@
+{
+  "name": "image-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "dev-client": "cd client && npm run build && npm run start"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "canvas": "^2.9.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.2"
+  }
+}
