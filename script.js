@@ -1,4 +1,4 @@
-const { GenerateCanvas, DownloadImage } = require('./index');
+const { GenerateCanvas, DownloadImage } = require('mds-generate-canvas');
 
 const body = {
     insert: '/duolingo.png',
@@ -8,11 +8,11 @@ const body = {
     height: 600
 }
 
-let generateCanvas = new GenerateCanvas('/disney.png');
-let downloadImage = new DownloadImage();
-console.log(downloadImage, generateCanvas);
+// let generateCanvas = new GenerateCanvas('/disney.png');
+// let downloadImage = new DownloadImage();
+// console.log(downloadImage, generateCanvas);
 
-const asyncFunction = async () => {
-    await generateCanvas.generate(body);
-}
+// const asyncFunction = async () => {
+//     await generateCanvas.generate(body);
+// }
 // asyncFunction();

@@ -8,13 +8,14 @@
     "dev-client": "cd client && npm run build && npm run start"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "nodemon": "^2.0.15"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.2",
-    "mds-generate-canvas": "^0.1.1"
+    "mds-generate-canvas": "^0.1.1",
+    "multer": "^1.4.4"
   }
 }

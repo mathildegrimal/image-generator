@@ -1,7 +1,30 @@
 const router = require('express').Router();
 const path = require('path');
+const multer = require('multer');
+const fs = require('fs');
+require('dotenv').config();
 
-router.get('/', async (req, res) => {
+const imageUploadPath = process.env.IMAGES_FOLDER_PATH;
+    
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, imageUploadPath);
+    },
+    filename: function (req, file, cb) {
+        cb(null, `${file.fieldname}_dateVal_${Date.now()}_${file.originalname}`);
+    },
+});
+
+const imageUpload = multer({ storage: storage });
+
+router.post('/image-upload',
+    imageUpload.array("my-image-file"),
+    async (req, res) => {  
+});
+
+
+
+router.post('/truc', async (req, res) => {
     const body = {
         base: '/disney.png',
         insert: '/duolingo.png',
@@ -12,10 +35,10 @@ router.get('/', async (req, res) => {
     }
 
     try {
-        const generateCanvas = require('../generateCanvas');
-        await generateCanvas(body);
-        res.type('png');
-        res.sendFile(path.join(__dirname, '../images/image.png'));
+        // const generateCanvas = require('../generateCanvas');
+        // await generateCanvas(body);
+        // res.type('png');
+        // res.sendFile(path.join(__dirname, '../images/image.png'));
     } catch (err) {
         res.send('Erreur: ' + err);
     }
