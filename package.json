@@ -1,6 +1,6 @@
 {
   "name": "mds-generate-canvas",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Generate a merge of two pictures as a canvas",
   "main": "index.js",
   "scripts": {
