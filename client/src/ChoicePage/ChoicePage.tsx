@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import ChoiceItem from "./ChoiceItem";
 
-export default function ChoicePage() {
+export default function ChoicePage(props: any) {
+  console.log(props.imagesNames);
   const ItemsConfig = [
     { title: "TAILLE", label: ["width", "height"], placeholder: ["largeur", "hauteur"] },
     { title: "POSITION", label: ["x", "y"], placeholder: ["x", "hauteur"] },

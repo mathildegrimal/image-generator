@@ -1,21 +1,31 @@
 import React, { useState } from "react";
 import FileInput from "./FileInput";
 import axios from "axios";
-export default function HomePage() {
+import { useNavigate } from "react-router-dom";
+
+export default function HomePage(props: any) {
   
+  const navigate = useNavigate();
   const [images, setImages] = useState<FormData[]>([]);
+  // const [imagesNames, setImagesNames]= useState<String[]>([])
   const handleChange = (e: any) => {
     const imagesToUpload = images;
     const formData = new FormData();
     images.push(formData);
-    formData.append("my-image-file", e.target.files[0], e.target.files[0].name);
+    formData.append("image", e.target.files[0], e.target.files[0].name);
     setImages(imagesToUpload);
     console.log(images);
   }
-  const handleClick = () => {
+  const handleClick = async () => {
+    props.setImagesNames([]);
     for (const image of images) {
-      axios.post("http://localhost:8000/image-upload", image);
+      const result = await axios.post("http://localhost:8000/image-upload", image);
+      const imagesNamesUpdated = props.imagesNames;
+      imagesNamesUpdated.push(result.data);
+      props.setImagesNames(imagesNamesUpdated);
     }
+    setImages([]);
+    navigate("/choice");
   };
 
   return (

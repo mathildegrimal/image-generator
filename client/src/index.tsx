@@ -9,13 +9,7 @@ import ChoicePage from "./ChoicePage/ChoicePage";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/result" element={<Result />} />
-        <Route path="/choice" element={<ChoicePage />} />
-      </Routes>
-    </BrowserRouter>
+    <App/>
   </React.StrictMode>,
   document.getElementById("root")
 );
