@@ -34,7 +34,6 @@ router.post('/generate-image', async (req, res) => {
     const basePath = path.join(process.env.IMAGES_FOLDER_PATH, firstImage)
     const insertPath = path.join(process.env.IMAGES_FOLDER_PATH, secondImage);
     const params = {
-        insert: secondImage,
         x,
         y,
         width,
