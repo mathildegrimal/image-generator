@@ -25,7 +25,7 @@ We use [multer](https://www.npmjs.com/package/multer) package to download and sa
 
 We use our package [mds-generate-canvas](https://www.npmjs.com/package/mds-generate-canvas), based on [node-canvas](https://github.com/Automattic/node-canvas), and [Cairo](https://cairographics.org)-backed Canvas implementation for Node.js.
 
-## Install dependencies :
+## Installation :
 
 Open your terminal in your dev folder and run (or do it in your IDE terminal) :
 ```
@@ -48,6 +48,12 @@ npm install
 ```
 
 ## Run the app :
+
+You'll have to create an image folder or specify your public/image path in a configuration variable, in .env, like this:
+For a folder at the root fo the app named "images":
+```
+IMAGES_FOLDER_PATH=./images
+```
 Open a terminal :
 ```
 npm run dev
