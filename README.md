@@ -21,6 +21,8 @@ To send images to the back-end it uses [react-uploady](https://github.com/rpldy/
 
 Node.js back is writen in Javascript, uses [Express], not to mention [Cors](https://expressjs.com/en/resources/middleware/cors.html) to enable incoming requests from the client.
 
+We use [multer](https://www.npmjs.com/package/multer) package to download and save images on the back-end.
+
 We use our package [mds-generate-canvas](https://www.npmjs.com/package/mds-generate-canvas), based on [node-canvas](https://github.com/Automattic/node-canvas), and [Cairo](https://cairographics.org)-backed Canvas implementation for Node.js.
 
 ## Install dependencies :
