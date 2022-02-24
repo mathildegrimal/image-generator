@@ -27,6 +27,20 @@ We use our package [mds-generate-canvas](https://www.npmjs.com/package/mds-gener
 
 ## Install dependencies :
 
+Open your terminal in your dev folder and run (or do it in your IDE terminal) :
+```
+git clone https://github.com/mathildegrimal/image-generator.git
+cd cd image-generator
+```
+
+⚠ In case you happen to use a Mac OS X M1 you will have to use the command below first:
+```
+    brew install pkg-config cairo pango libpng jpeg giflib librsvg
+```
+If you have problems to install on Mac OS even with this command, check the wiki on Automattic/node-canvas here to build from source :
+https://github.com/Automattic/node-canvas/wiki/Installation:-Mac-OS-X
+
+Then run :
 ```
     npm install
     cd client 
