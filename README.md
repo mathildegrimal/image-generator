@@ -30,7 +30,7 @@ We use our package [mds-generate-canvas](https://www.npmjs.com/package/mds-gener
 Open your terminal in your dev folder and run (or do it in your IDE terminal) :
 ```
 git clone https://github.com/mathildegrimal/image-generator.git
-cd cd image-generator
+cd image-generator
 ```
 
 ⚠ In case you happen to use a Mac OS X M1 you will have to use the command below first:
