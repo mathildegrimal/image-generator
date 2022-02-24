@@ -2,7 +2,9 @@ const router = require('express').Router();
 const path = require('path');
 const multer = require('multer');
 const fs = require('fs');
-require('dotenv').config({path:'.env'});
+require('dotenv').config({ path: '.env' });
+const { GenerateCanvas } = require('mds-generate-canvas');
+const { route } = require('express/lib/application');
 
 const imageUploadPath = process.env.IMAGES_FOLDER_PATH;
 
@@ -26,35 +28,40 @@ router.post('/image-upload',
 
 
 
-router.post('/generateImage', async (req, res) => {
-
-    const { x, y, width, height } = req.body;
-
-    const body2 = {
-        insert: "/duolingo.png",
-        x: 100,
-        y: 100,
-        width: 100,
-        height: 600,
+router.post('/generate-image', async (req, res) => {
+    const { x, y, width, height } = req.body.valueImage;
+    const [firstImage, secondImage] = req.body.imagesNames;
+    const basePath = path.join(process.env.IMAGES_FOLDER_PATH, firstImage)
+    const insertPath = path.join(process.env.IMAGES_FOLDER_PATH, secondImage);
+    const params = {
+        insert: secondImage,
+        x,
+        y,
+        width,
+        height,
+        basePath,
+        insertPath,
     };
 
-    // let generateCanvas = new GenerateCanvas('/disney.png');
-    // let downloadImage = new DownloadImage();
-    // console.log(downloadImage, generateCanvas);
+    let generateCanvas = new GenerateCanvas(firstImage);
+    
 
-    // const asyncFunction = async () => {
-    //     await generateCanvas.generate(body);
-    // }
-    // asyncFunction();
-    const body = {
-        base: "/disney.png",
-        insert: "/duolingo.png",
-        x: 100,
-        y: 100,
-        width: 100,
-        height: 600,
-    };
-  
+    const image = await generateCanvas.generate(params);
+    if (image) {
+        res.send(firstImage);
+    }
+    
 });
+
+router.get('/image/:image', (req, res) => {
+    res.sendFile(
+      path.join(
+        __dirname,
+        "..",
+        process.env.IMAGES_FOLDER_PATH,
+        req.params.image
+      )
+    );
+})
 
 module.exports = router;

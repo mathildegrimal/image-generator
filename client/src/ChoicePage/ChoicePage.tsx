@@ -1,20 +1,32 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ChoiceItem from "./ChoiceItem";
 
 export default function ChoicePage(props: any) {
-  console.log(props.imagesNames);
+  const navigate = useNavigate();
+  
+  
   const ItemsConfig = [
     { title: "TAILLE", label: ["width", "height"], placeholder: ["largeur", "hauteur"] },
     { title: "POSITION", label: ["x", "y"], placeholder: ["x", "hauteur"] },
   ];
   const [valueImage, setValueImage] = useState({})
-  function handleSubmit () {
-    //todo envoyer les données au back
+
+  async function handleSubmit() {
+    const imagesNames = props.imagesNames;
+    const imagePath = await axios.post("http://localhost:8000/generate-image", { valueImage, imagesNames });
+    props.setLinkSource(`http://localhost:8000/image/${imagePath.data}`);
+    navigate("/result");
   }
-  console.log(valueImage)
+
   return (
-    <div className="h-screen w-screen bg-slate-100 flex justify-center items-center">
-      <div className="flex w-screen h-screen justify-around items-center">
+    <div>
+      <div className="flex justify-center">
+        <h1 className="text-3xl mt-8">Choisissez vos réglages</h1>
+      </div>
+    <div className="h-screen w-screen flex justify-center items-center">
+      <div className="flex w-screen h-screen  justify-center  gap-10 items-center">
         {ItemsConfig.map((item, index) => (
           <ChoiceItem
             title={item.title}
@@ -33,6 +45,7 @@ export default function ChoicePage(props: any) {
           Envoyer
         </button>
       </div>
-    </div>
+      </div>
+      </div>
   );
 }

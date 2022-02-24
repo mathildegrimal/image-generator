@@ -13,6 +13,7 @@ Lise Guichard and Antonin Val (front-end developpers) / Virginie Baumes and Math
 ## Packages
 
 ### Frontend
+
 Front uses Typescript, and [Tailwind](https://tailwindcss.com) for layout and components styling.
 To send images to the back-end it uses [react-uploady](https://github.com/rpldy/react-uploady), enabling build (client-side) of file-upload features.
 
@@ -20,7 +21,7 @@ To send images to the back-end it uses [react-uploady](https://github.com/rpldy/
 
 Node.js back is writen in Javascript, uses [Express], not to mention [Cors](https://expressjs.com/en/resources/middleware/cors.html) to enable incoming requests from the client.
 
-We use [node-canvas](https://github.com/Automattic/node-canvas), a [Cairo](https://cairographics.org)-backed Canvas implementation for Node.js.
+We use our package [mds-generate-canvas](https://www.npmjs.com/package/mds-generate-canvas), based on [node-canvas](https://github.com/Automattic/node-canvas), and [Cairo](https://cairographics.org)-backed Canvas implementation for Node.js.
 
 ## Install dependencies :
 
@@ -29,16 +30,3 @@ We use [node-canvas](https://github.com/Automattic/node-canvas), a [Cairo](https
     cd client 
     npm install
 ```
-
-## Contribute
-
-As contributor[^1], you can : fork the repo to add all the code, bug fixes, documentation fixes you want, respecting our code of conduct [here](CODE_OF_CONDUCT.md)
-
-To add code, create a branch with the name of feature / issue, and create a pull request on the contributions branch. Pull requests will be examined by the committers[^2]
-
-When you contribute for the first time, do not forget to add you name and a link to your github page in the [contributors.md](contributors.md)
-
-[^1]: A Contributor is any individual creating or commenting on an issue or pull request.
-[^2]: A Committer is a subset of contributors who have been given write access to the repository.
-
-
