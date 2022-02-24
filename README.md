@@ -32,3 +32,13 @@ We use our package [mds-generate-canvas](https://www.npmjs.com/package/mds-gener
     cd client 
     npm install
 ```
+
+## Run the app :
+In the server :
+```
+    npm run dev
+```
+In the client: (cd client)
+```
+    npm run start
+```
