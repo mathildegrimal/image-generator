@@ -41,30 +41,29 @@ IMAGES_FOLDER_PATH=./images
 You'll have to import GenerateCanvas in your back-end method that handles the image generation.
 The Front End needs to send you two images that will be saved in the folder you specified in the .env.
 The generated image wil be also saved in this folder.
-
 ```js
-###front-end
-
-axios.post('http://localhost:4000/image-upload', {image1, image2, y, x, width, height});
-
-
-###back-End
 
 const { GenerateCanvas } = require('mds-image-generator'); 
 
-app.post('/image-upload', async (req, res) => {
-  //handle image download and save image.name in two variables
-  //call generate canvas
-  const image2Name = "image2";
-  const { y, x, width, height } = req.body;
-  await generateCanvas(image2Name,y, x, width, height);
-})
+const x ="position x of the second image";
+const y = "position x of the second image";
+const width ="width of the second image";
+const height = "height of the second image";
 
-async function generateCanvas(params){
-    const canvas = new GenerateCanvas();
-    await generateCanvas.generate(params);
-}
+const basePath = "YOUR_PATH_TO_IMAGE1"
+const insertPAth ="YOUR_PATH_TO_IMAGE2";
 
+const params = {
+        x,
+        y,
+        width,
+        height,
+        basePath,
+        insertPath,
+    };
+
+    let generateCanvas = new GenerateCanvas(firstImage);
+    const image = await generateCanvas.generate(params);
 ```
 
 ## Contribute
