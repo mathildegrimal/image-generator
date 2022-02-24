@@ -7,12 +7,3 @@ const body = {
     width: 100,
     height: 600
 }
-
-// let generateCanvas = new GenerateCanvas('/disney.png');
-// let downloadImage = new DownloadImage();
-// console.log(downloadImage, generateCanvas);
-
-// const asyncFunction = async () => {
-//     await generateCanvas.generate(body);
-// }
-// asyncFunction();

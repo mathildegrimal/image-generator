@@ -2,46 +2,66 @@ const router = require('express').Router();
 const path = require('path');
 const multer = require('multer');
 const fs = require('fs');
-require('dotenv').config();
+require('dotenv').config({ path: '.env' });
+const { GenerateCanvas } = require('mds-generate-canvas');
+const { route } = require('express/lib/application');
 
 const imageUploadPath = process.env.IMAGES_FOLDER_PATH;
-    
+
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, imageUploadPath);
     },
     filename: function (req, file, cb) {
-        cb(null, `${file.fieldname}_dateVal_${Date.now()}_${file.originalname}`);
+        cb(null, `${file.originalname}`);
     },
 });
 
 const imageUpload = multer({ storage: storage });
 
 router.post('/image-upload',
-    imageUpload.array("my-image-file"),
-    async (req, res) => {  
+    imageUpload.array("image"),
+    async (req, res) => { 
+        const result = req.files[0].filename;
+    res.send(result);
 });
 
 
 
-router.post('/truc', async (req, res) => {
-    const body = {
-        base: '/disney.png',
-        insert: '/duolingo.png',
-        x: 100, 
-        y: 100,
-        width: 100,
-        height: 600
-    }
+router.post('/generate-image', async (req, res) => {
+    const { x, y, width, height } = req.body.valueImage;
+    const [firstImage, secondImage] = req.body.imagesNames;
+    const basePath = path.join(process.env.IMAGES_FOLDER_PATH, firstImage)
+    const insertPath = path.join(process.env.IMAGES_FOLDER_PATH, secondImage);
+    const params = {
+        insert: secondImage,
+        x,
+        y,
+        width,
+        height,
+        basePath,
+        insertPath,
+    };
 
-    try {
-        // const generateCanvas = require('../generateCanvas');
-        // await generateCanvas(body);
-        // res.type('png');
-        // res.sendFile(path.join(__dirname, '../images/image.png'));
-    } catch (err) {
-        res.send('Erreur: ' + err);
+    let generateCanvas = new GenerateCanvas(firstImage);
+    
+
+    const image = await generateCanvas.generate(params);
+    if (image) {
+        res.send(firstImage);
     }
+    
 });
+
+router.get('/image/:image', (req, res) => {
+    res.sendFile(
+      path.join(
+        __dirname,
+        "..",
+        process.env.IMAGES_FOLDER_PATH,
+        req.params.image
+      )
+    );
+})
 
 module.exports = router;
