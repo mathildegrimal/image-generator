@@ -48,11 +48,12 @@ npm install
 ```
 
 ## Run the app :
-In the server :
+Open a terminal :
 ```
 npm run dev
 ```
-In the client: (cd client)
+Open a new terminal to run the client :
 ```
+cd client
 npm run start
 ```
