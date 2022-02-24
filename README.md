@@ -35,24 +35,24 @@ cd image-generator
 
 ⚠ In case you happen to use a Mac OS X M1 you will have to use the command below first:
 ```
-    brew install pkg-config cairo pango libpng jpeg giflib librsvg
+brew install pkg-config cairo pango libpng jpeg giflib librsvg
 ```
 If you have problems to install on Mac OS even with this command, check the wiki on Automattic/node-canvas here to build from source :
 https://github.com/Automattic/node-canvas/wiki/Installation:-Mac-OS-X
 
 Then run :
 ```
-    npm install
-    cd client 
-    npm install
+npm install
+cd client 
+npm install
 ```
 
 ## Run the app :
 In the server :
 ```
-    npm run dev
+npm run dev
 ```
 In the client: (cd client)
 ```
-    npm run start
+npm run start
 ```
